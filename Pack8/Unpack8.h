@@ -1,5 +1,6 @@
 #pragma once
 #include "windows.h"
+#include "types.h"
 #define SIGNCH(a,m) if((a)&(m)){(a)|=(0xffffffff ^ ((m)-1));}
 //-------------------------------------------------------- -
 //1 / 0	  : (0) xxxx'0000	                              |											|										  |
@@ -19,22 +20,42 @@
 //21 / 20 : (7) xxxx'1110	aaaa'aaaa aaaa'aaaa aaaa'bbbb | bbbb'bbbb bbbb'bbbb cccc'cccc cccc'cccc | cccc'dddd dddd'dddd dddd'dddd eeee'eeee | eeee'eeee eeee'ffff ffff'ffff ffff'ffff | hhhh'hhhh hhhh'hhhh hhhh'gggg gggg'gggg | gggg'gggg
 ////--------------------------------------------------------
 
-typedef void(*typeUnpack8Funcs) (unsigned char * _src, long * _dst);
+s32 unpack8(unsigned char * _src, long * _dst);
 
-void UnPack8_NULL(unsigned char * _src, long * _dst){}
+typedef s32(*typeunpack8Funcs) (unsigned char * _src, long * _dst);
 
-const typeUnpack8Funcs Unpack8Funcs[] =
+s32 unpack8_NULL(unsigned char * _src, long * _dst);
+s32 unpack8_11(unsigned char * _src, long * _dst);
+s32 unpack8_7(unsigned char * _src, long * _dst);
+s32 unpack8_15(unsigned char * _src, long * _dst);
+s32 unpack8_5(unsigned char * _src, long * _dst);
+s32 unpack8_13(unsigned char * _src, long * _dst);
+s32 unpack8_9(unsigned char * _src, long * _dst);
+s32 unpack8_20(unsigned char * _src, long * _dst);
+s32 unpack8_4(unsigned char * _src, long * _dst);
+s32 unpack8_12(unsigned char * _src, long * _dst);
+s32 unpack8_8(unsigned char * _src, long * _dst);
+s32 unpack8_16(unsigned char * _src, long * _dst);
+s32 unpack8_6(unsigned char * _src, long * _dst);
+s32 unpack8_14(unsigned char * _src, long * _dst);
+s32 unpack8_10(unsigned char * _src, long * _dst);
+
+
+const typeunpack8Funcs unpack8Funcs[] =
 {
-	UnPack8_NULL,	//0
-	UnPack8_11,		//1
-	UnPack8_7,
-	UnPack8_15,
-	UnPack8_5,
-	UnPack8_7,
-	UnPack8_7,
-	UnPack8_7,
-	UnPack8_7,
-	UnPack8_7,
-	UnPack8_7,
-	UnPack8_7
+	unpack8_NULL,	//0
+	unpack8_11,		//1
+	unpack8_7,		//2
+	unpack8_15,		//3
+	unpack8_5,		//4
+	unpack8_13,		//5
+	unpack8_9,		//6
+	unpack8_20,		//7
+	unpack8_4,		//8
+	unpack8_12,		//9
+	unpack8_8,		//A
+	unpack8_16,		//B
+	unpack8_6,		//C
+	unpack8_14,		//D
+	unpack8_10		//E
 };

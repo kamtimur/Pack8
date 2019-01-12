@@ -143,11 +143,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Pack8Alg.cpp" />
+    <ClCompile Include="Pack8.cpp" />
+    <ClCompile Include="PackAlg.cpp" />
     <ClCompile Include="Unpack8.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pack.h" />
+    <ClInclude Include="Pack8.h" />
+    <ClInclude Include="PackAlg.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="Unpack8.h" />
   </ItemGroup>
