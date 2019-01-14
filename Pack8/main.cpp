@@ -16,6 +16,8 @@ s32 prev[8];
 s32 current[8];
 long unpacked[8];
 
+s32 pack_used[15];
+
 int main()
 {
 
@@ -29,7 +31,7 @@ int main()
 		prev[i] = signal[i];
 	}
 
-
+	memset(pack_used, 0, 15);
 	while (true)
 	{
 		s32 ret_pack = pack8.Pack(signal, (EventMark)ECG, packed);
@@ -55,10 +57,11 @@ int main()
 				printf("good unpack %d\n", ret_unpack);
 			}
 		}
+		pack_used[ret_pack - 1]++;
 		for (int i = 0; i < 8; i++)
 		{
 			prev_signal[i] = signal[i];
-			signal[i] = (sin(2.*3.14*cnt / 500. + 3.14 / 3) + 1) * 1048575;
+			signal[i] = (sin(cnt))*0x7FFFF ;
 			diff_signal[i] = signal[i] - prev_signal[i];
 		}
 		cnt++;
