@@ -19,7 +19,7 @@ s32 pack8_16(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR 
 s32 pack8_20(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
 
 
-const typepack8Funcs pack8Funcs[] =
+const type_pack_funcs pack8Funcs[] =
 {
 	pack8_0,		//0
 	pack8_4,		//1
@@ -42,5 +42,4 @@ const typepack8Funcs pack8Funcs[] =
 	pack8_20,		//18
 	pack8_20,		//19
 	pack8_20,		//20
-
 };

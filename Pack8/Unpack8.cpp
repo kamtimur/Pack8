@@ -1,5 +1,10 @@
 #include "Unpack8.h"
 
+s32 unpack8_0(unsigned char * _src, long * _dst)
+{
+	return 0;
+}
+//------------------------------------------------------------------------------------------------------
 s32 unpack8_4(unsigned char * _src, long * _dst)
 {
 	// 4	байта : 0001'xxxx	aaaa'bbbb cccc'dddd eeee'ffff | hhhh'gggg					
@@ -341,10 +346,6 @@ s32 unpack8_10(unsigned char * _src, long * _dst)
 	*_dst = ((DW >> 14) & 0x3ff);
 	SIGNCH((*_dst), (1 << 9));
 	return 10;
-}
-s32 unpack8_NULL(unsigned char * _src, long * _dst)
-{
-	return 0;
 }
 //------------------------------------------------------------------------------------------------------
 s32 unpack8_11(unsigned char * _src, long * _dst)
@@ -720,7 +721,7 @@ s32 unpack8(unsigned char * _src, long * _dst)
 	s32 ret;
 	if (id < 0x0F)
 	{
-		//typeunpack8Funcs * pUp = &unpack8Funcs[id];
+		//untype_pack_funcs * pUp = &unpack8Funcs[id];
 		ret=unpack8Funcs[id](_src, _dst);
 	}
 	return ret;

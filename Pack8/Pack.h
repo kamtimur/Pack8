@@ -1,4 +1,5 @@
 #pragma once
+#include "types.h"
 enum EventMark
 {
 	ECG = 1, 	//- ECG
@@ -12,6 +13,6 @@ enum EventMark
 };
 #define RESTR __restrict 
 
-typedef s32(*typepack8Funcs) (const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
-
+//typedef s32(*type_pack_funcs) (const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+using type_pack_funcs = s32(*) (const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
 

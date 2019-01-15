@@ -1,7 +1,8 @@
 #pragma once
 #include "windows.h"
-#include "types.h"
-#define SIGNCH(a,m) if((a)&(m)){(a)|=(0xffffffff ^ ((m)-1));}
+#include "Unpack.h"
+
+
 //-------------------------------------------------------- -
 //1 / 0	  : (0) xxxx'0000	                              |											|										  |
 //5 / 4   : (8) xxxx'0001	aaaa'bbbb cccc'dddd eeee'ffff | hhhh'gggg								|									      |											|										  |
@@ -19,12 +20,9 @@
 //17 / 16 : (B) xxxx'1101   aaaa'aaaa aaaa'aaaa bbbb'bbbb | bbbb'bbbb cccc'cccc cccc'cccc dddd'dddd | dddd'dddd eeee'eeee eeee'eeee ffff'ffff | ffff'ffff hhhh'hhhh hhhh'hhhh gggg'gggg | gggg'gggg					 			  |
 //21 / 20 : (7) xxxx'1110	aaaa'aaaa aaaa'aaaa aaaa'bbbb | bbbb'bbbb bbbb'bbbb cccc'cccc cccc'cccc | cccc'dddd dddd'dddd dddd'dddd eeee'eeee | eeee'eeee eeee'ffff ffff'ffff ffff'ffff | hhhh'hhhh hhhh'hhhh hhhh'gggg gggg'gggg | gggg'gggg
 ////--------------------------------------------------------
-
 s32 unpack8(unsigned char * _src, long * _dst);
 
-typedef s32(*typeunpack8Funcs) (unsigned char * _src, long * _dst);
-
-s32 unpack8_NULL(unsigned char * _src, long * _dst);
+s32 unpack8_0(unsigned char * _src, long * _dst);
 s32 unpack8_11(unsigned char * _src, long * _dst);
 s32 unpack8_7(unsigned char * _src, long * _dst);
 s32 unpack8_15(unsigned char * _src, long * _dst);
@@ -41,9 +39,9 @@ s32 unpack8_14(unsigned char * _src, long * _dst);
 s32 unpack8_10(unsigned char * _src, long * _dst);
 
 
-const typeunpack8Funcs unpack8Funcs[] =
+const untype_pack_funcs unpack8Funcs[] =
 {
-	unpack8_NULL,	//0
+	unpack8_0,		//0
 	unpack8_11,		//1
 	unpack8_7,		//2
 	unpack8_15,		//3
