@@ -1,11 +1,11 @@
 #pragma once
 #include "types.h"
-enum EventMark
+enum EventMark //- EventMark
 {
 	ECG = 1, 	//- ECG
 	REO,		//-	REO
-	ACÑ_IN,		//-	ACÑ_IN
-	ACÑ_EXT,	//-	ACÑ_EXT
+	ACC_IN,		//-	ACC_IN
+	ACC_EXT,	//-	ACC_EXT
 	APT,		//-	APT
 	PULSE,		//-	PULSE
 	TON,		//-	TON
