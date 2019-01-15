@@ -4,8 +4,8 @@ enum EventMark
 {
 	ECG = 1, 	//- ECG
 	REO,		//-	REO
-	ACÑ_IN,		//-	ACÑ_IN
-	ACÑ_EXT,	//-	ACÑ_EXT
+	ACÃ‘_IN,		//-	ACÃ‘_IN
+	ACÃ‘_EXT,	//-	ACÃ‘_EXT
 	APT,		//-	APT
 	PULSE,		//-	PULSE
 	TON,		//-	TON

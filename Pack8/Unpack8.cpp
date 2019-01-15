@@ -7,7 +7,7 @@ s32 unpack8_0(unsigned char * _src, long * _dst)
 //------------------------------------------------------------------------------------------------------
 s32 unpack8_4(unsigned char * _src, long * _dst)
 {
-	// 4	αΰιςΰ : 0001'xxxx	aaaa'bbbb cccc'dddd eeee'ffff | hhhh'gggg					
+	// 4	Χ‘ΧΧ™ΧΆΧ : 0001'xxxx	aaaa'bbbb cccc'dddd eeee'ffff | hhhh'gggg					
 	//CString sbin = ToBin(_src, 5);
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
@@ -55,8 +55,8 @@ s32 unpack8_4(unsigned char * _src, long * _dst)
 s32 unpack8_5(unsigned char * _src, long * _dst)
 {
 	//CString sbin = ToBin(_src, 6);
-	// 5	αΰις  : 0010'xxxx	aaaa'abbb bbcc'cccd dddd'eeee | efff'ffhh hhhg'gggg	
-//  6 αΰις  /5  αθς:xxxx'0010	aaaa'abbb bbcc'cccd dddd'eeee | efff'ffhh hhhg'gggg
+	// 5	Χ‘ΧΧ™ΧΆ  : 0010'xxxx	aaaa'abbb bbcc'cccd dddd'eeee | efff'ffhh hhhg'gggg	
+//  6 Χ‘ΧΧ™ΧΆ  /5  Χ‘ΧΧΆ:xxxx'0010	aaaa'abbb bbcc'cccd dddd'eeee | efff'ffhh hhhg'gggg
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 
@@ -105,7 +105,7 @@ s32 unpack8_5(unsigned char * _src, long * _dst)
 s32 unpack8_6(unsigned char * _src, long * _dst)
 {
 	//CString sbin = ToBin(_src, 7);
-	// 6	αΰις  : 0011'xxxx	aaaa'aabb bbbb'cccc ccdd'dddd | eeee'eeff ffff'hhhh hhgg'gggg	
+	// 6	Χ‘ΧΧ™ΧΆ  : 0011'xxxx	aaaa'aabb bbbb'cccc ccdd'dddd | eeee'eeff ffff'hhhh hhgg'gggg	
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0x3f);
@@ -152,7 +152,7 @@ s32 unpack8_6(unsigned char * _src, long * _dst)
 s32 unpack8_7(unsigned char * _src, long * _dst)
 {
 	//CString sbin = ToBin(_src, 8);
-	// 7	αΰις  : 0100'xxxx	aaaa'aaab bbbb'bbcc cccc'cddd | dddd'eeee eeef'ffff ffhh'hhhh hggg'gggg								
+	// 7	Χ‘ΧΧ™ΧΆ  : 0100'xxxx	aaaa'aaab bbbb'bbcc cccc'cddd | dddd'eeee eeef'ffff ffhh'hhhh hggg'gggg								
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0x7f);
@@ -201,7 +201,7 @@ s32 unpack8_8(unsigned char * _src, long * _dst)
 
 	//CString sbin = ToBin(_src, 9);
 
-	// 8	αΰις  : 0101'xxxx	aaaa'aaaa bbbb'bbbb cccc'cccc | dddd'dddd eeee'eeee ffff'ffff hhhh'hhhh | gggg'gggg		
+	// 8	Χ‘ΧΧ™ΧΆ  : 0101'xxxx	aaaa'aaaa bbbb'bbbb cccc'cccc | dddd'dddd eeee'eeee ffff'ffff hhhh'hhhh | gggg'gggg		
 	//0 a
 	_src++;
 	*_dst = (long)(*_src);
@@ -254,7 +254,7 @@ s32 unpack8_8(unsigned char * _src, long * _dst)
 s32 unpack8_9(unsigned char * _src, long * _dst)
 {
 	//CString sbin = ToBin(_src, 10);
-	// 9	αΰις  : 0110'xxxx	aaaa'aaaa abbb'bbbb bbcc'cccc | cccd'dddd dddd'eeee eeee'efff ffff'ffhh | hhhh'hhhg gggg'gggg					
+	// 9	Χ‘ΧΧ™ΧΆ  : 0110'xxxx	aaaa'aaaa abbb'bbbb bbcc'cccc | cccd'dddd dddd'eeee eeee'efff ffff'ffhh | hhhh'hhhg gggg'gggg					
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0x1ff);
@@ -302,7 +302,7 @@ s32 unpack8_9(unsigned char * _src, long * _dst)
 s32 unpack8_10(unsigned char * _src, long * _dst)
 {
 	//CString sbin = ToBin(_src, 11);
-	// 10	αΰις  : 0111'xxxx	aaaa'aaaa aabb'bbbb bbbb'cccc | cccc'ccdd dddd'dddd eeee'eeee eeff'ffff | ffff'hhhh hhhh'hhgg gggg'gggg			
+	// 10	Χ‘ΧΧ™ΧΆ  : 0111'xxxx	aaaa'aaaa aabb'bbbb bbbb'cccc | cccc'ccdd dddd'dddd eeee'eeee eeff'ffff | ffff'hhhh hhhh'hhgg gggg'gggg			
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0x3ff);
@@ -351,7 +351,7 @@ s32 unpack8_10(unsigned char * _src, long * _dst)
 s32 unpack8_11(unsigned char * _src, long * _dst)
 {
 	//CString sbin = ToBin(_src, 12);
-	// 11	αΰις  : 1000'xxxx	aaaa'aaaa aaab'bbbb bbbb'bbcc | cccc'cccc cddd'dddd dddd'eeee eeee'eeef | ffff'ffff ffhh'hhhh hhhh'hggg gggg'gggg	|								
+	// 11	Χ‘ΧΧ™ΧΆ  : 1000'xxxx	aaaa'aaaa aaab'bbbb bbbb'bbcc | cccc'cccc cddd'dddd dddd'eeee eeee'eeef | ffff'ffff ffhh'hhhh hhhh'hggg gggg'gggg	|								
 	DWORD DW = *(DWORD*)(_src + 1);
 
 	//0 a
@@ -408,7 +408,7 @@ s32 unpack8_11(unsigned char * _src, long * _dst)
 s32 unpack8_12(unsigned char * _src, long * _dst)
 {
 	//CString sbin = ToBin(_src, 13);
-	// 12	αΰις  : 1001'xxxx	aaaa'aaaa aaaa'bbbb bbbb'bbbb | cccc'cccc cccc'dddd dddd'dddd eeee'eeee | eeee'ffff ffff'ffff hhhh'hhhh hhhh'gggg	| gggg'gggg			
+	// 12	Χ‘ΧΧ™ΧΆ  : 1001'xxxx	aaaa'aaaa aaaa'bbbb bbbb'bbbb | cccc'cccc cccc'dddd dddd'dddd eeee'eeee | eeee'ffff ffff'ffff hhhh'hhhh hhhh'gggg	| gggg'gggg			
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0xfff);
@@ -457,7 +457,7 @@ s32 unpack8_12(unsigned char * _src, long * _dst)
 s32 unpack8_13(unsigned char * _src, long * _dst)
 {
 	//CString sbin = ToBin(_src, 14);
-	// 13	αΰις  : 1010'xxxx	aaaa'aaaa aaaa'abbb bbbb'bbbb | bbcc'cccc cccc'cccd dddd'dddd dddd'eeee | eeee'eeee efff'ffff ffff'ffhh hhhh'hhhh	| hhhg'gggg gggg'gggg					
+	// 13	Χ‘ΧΧ™ΧΆ  : 1010'xxxx	aaaa'aaaa aaaa'abbb bbbb'bbbb | bbcc'cccc cccc'cccd dddd'dddd dddd'eeee | eeee'eeee efff'ffff ffff'ffhh hhhh'hhhh	| hhhg'gggg gggg'gggg					
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0x1fff);
@@ -506,7 +506,7 @@ s32 unpack8_13(unsigned char * _src, long * _dst)
 s32 unpack8_14(unsigned char * _src, long * _dst)
 {
 	//CString sbin = ToBin(_src, 15);
-	// 14	αΰις  : 1011'xxxx	aaaa'aaaa aaaa'aabb bbbb'bbbb | bbbb'cccc cccc'cccc ccdd'dddd dddd'dddd | eeee'eeee eeee'eeff ffff'ffff ffff'hhhh | hhhh'hhhh hhgg'gggg gggg'gggg			
+	// 14	Χ‘ΧΧ™ΧΆ  : 1011'xxxx	aaaa'aaaa aaaa'aabb bbbb'bbbb | bbbb'cccc cccc'cccc ccdd'dddd dddd'dddd | eeee'eeee eeee'eeff ffff'ffff ffff'hhhh | hhhh'hhhh hhgg'gggg gggg'gggg			
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0x3fff);
@@ -555,7 +555,7 @@ s32 unpack8_14(unsigned char * _src, long * _dst)
 s32 unpack8_15(unsigned char * _src, long * _dst)
 {
 	//CString sbin = ToBin(_src, 16);
-	// 15	αΰις  : 1100'xxxx	aaaa'aaaa aaaa'aaab bbbb'bbbb | bbbb'bbcc cccc'cccc cccc'cddd dddd'dddd | dddd'eeee eeee'eeee eeef'ffff ffff'ffff | ffhh'hhhh hhhh'hhhh hggg'gggg gggg'gggg	|
+	// 15	Χ‘ΧΧ™ΧΆ  : 1100'xxxx	aaaa'aaaa aaaa'aaab bbbb'bbbb | bbbb'bbcc cccc'cccc cccc'cddd dddd'dddd | dddd'eeee eeee'eeee eeef'ffff ffff'ffff | ffhh'hhhh hhhh'hhhh hggg'gggg gggg'gggg	|
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0x7fff);
@@ -606,7 +606,7 @@ s32 unpack8_15(unsigned char * _src, long * _dst)
 s32 unpack8_16(unsigned char * _src, long * _dst)
 {
 	//CString sbin = ToBin(_src, 17);
-	// 16	αΰις  : 1101'xxxx aaaa'aaaa aaaa'aaaa bbbb'bbbb | bbbb'bbbb cccc'cccc cccc'cccc dddd'dddd | dddd'dddd eeee'eeee eeee'eeee ffff'ffff | ffff'ffff hhhh'hhhh hhhh'hhhh gggg'gggg	| gggg'gggg							
+	// 16	Χ‘ΧΧ™ΧΆ  : 1101'xxxx aaaa'aaaa aaaa'aaaa bbbb'bbbb | bbbb'bbbb cccc'cccc cccc'cccc dddd'dddd | dddd'dddd eeee'eeee eeee'eeee ffff'ffff | ffff'ffff hhhh'hhhh hhhh'hhhh gggg'gggg	| gggg'gggg							
 	WORD *pW = (WORD*)(_src + 1);
 	//0 a
 	*_dst = (long)*pW;
@@ -658,13 +658,13 @@ s32 unpack8_16(unsigned char * _src, long * _dst)
 //------------------------------------------------------------------------------------------------------
 s32 unpack8_20(unsigned char * _src, long * _dst)
 {
-	// 21	αΰις  : 
+	// 21	Χ‘ΧΧ™ΧΆ  : 
 	// 1110'xxxx 
 	// aaaa'aaaa aaaa'aaaa aaaa'bbbb | bbbb'bbbb bbbb'bbbb cccc'cccc | cccc'cccc cccc'dddd dddd'dddd |
 	// dddd'dddd eeee'eeee eeee'eeee | eeee'ffff ffff'ffff ffff'ffff | hhhh'hhhh hhhh'hhhh hhhh'gggg |
 	// gggg'gggg | gggg gggg
 
-	//21 αΰις/20 αθς: xxxx'1110	aaaa'aaaa aaaa'aaaa aaaa'bbbb | bbbb'bbbb bbbb'bbbb cccc'cccc cccc'cccc | cccc'dddd dddd'dddd dddd'dddd eeee'eeee | eeee'eeee eeee'ffff ffff'ffff ffff'ffff | hhhh'hhhh hhhh'hhhh hhhh'gggg gggg'gggg	| gggg'gggg
+	//21 Χ‘ΧΧ™ΧΆ/20 Χ‘ΧΧΆ: xxxx'1110	aaaa'aaaa aaaa'aaaa aaaa'bbbb | bbbb'bbbb bbbb'bbbb cccc'cccc cccc'cccc | cccc'dddd dddd'dddd dddd'dddd eeee'eeee | eeee'eeee eeee'ffff ffff'ffff ffff'ffff | hhhh'hhhh hhhh'hhhh hhhh'gggg gggg'gggg	| gggg'gggg
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0xfffff);

@@ -8,7 +8,7 @@ s32 PackAlg::Pack(const s32 *RESTR in_diff, EventMark mark, s32 *RESTR out_pkcd)
 	frm = 0;
 	for (i = 0; i< InnerChannelNumber; i++)
 	{
-		Prev_Diff[i+8] = rg = in_diff[i] - Prev_Diff[i]; // внимание, порядок вычитания снова изменен
+		Prev_Diff[i+8] = rg = in_diff[i] - Prev_Diff[i]; // РІРЅРёРјР°РЅРёРµ, РїРѕСЂСЏРґРѕРє РІС‹С‡РёС‚Р°РЅРёСЏ СЃРЅРѕРІР° РёР·РјРµРЅРµРЅ
 		Prev_Diff[i] = in_diff[i];
 		rg = Size(rg);
 		if (frm < rg) frm = rg;			//
@@ -39,11 +39,11 @@ int clz(uint32_t x)
 }
 
 
-s32 PackAlg::Size(s32 rg)// определяем размер точки сигнала 
+s32 PackAlg::Size(s32 rg)// РѕРїСЂРµРґРµР»СЏРµРј СЂР°Р·РјРµСЂ С‚РѕС‡РєРё СЃРёРіРЅР°Р»Р° 
 {
 		if (rg < 0) rg = ~rg;				//
-		//__asm { clz rg ,rg};			// определение позиции старшей единицы
-		rg = clz(rg);					// ассемлерная операция заменена на эту
+		//__asm { clz rg ,rg};			// РѕРїСЂРµРґРµР»РµРЅРёРµ РїРѕР·РёС†РёРё СЃС‚Р°СЂС€РµР№ РµРґРёРЅРёС†С‹
+		rg = clz(rg);					// Р°СЃСЃРµРјР»РµСЂРЅР°СЏ РѕРїРµСЂР°С†РёСЏ Р·Р°РјРµРЅРµРЅР° РЅР° СЌС‚Сѓ
 		rg = 33 - rg;							//	
 		return rg;
 
