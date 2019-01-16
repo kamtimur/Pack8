@@ -3,7 +3,7 @@
 #include "Unpack.h"
 
 //-------------------------------------------------------- -
-//	„етырехканальна¤ паковка - лучше не использовать
+//	Четырехканальная паковка - лучше не использовать
 //	1/0  : (0) xxxx'0000	
 //	2/2  : (8) xxxx'0001	aabb'сcdd
 //	3/4  : (4) xxxx'0010	aaaa'bbbb cccc'dddd
@@ -33,10 +33,10 @@ s32 unpack4_10(unsigned char * _src, long * _dst);	//A
 													//B
 s32 unpack4_6(unsigned char * _src, long * _dst);	//C
 s32 unpack4_22(unsigned char * _src, long * _dst);	//D
+s32 unpack4_14(unsigned char * _src, long * _dst);	//E
 
 
-
-const untype_pack_funcs unpack4Funcs[] =
+const type_unpack_funcs unpack4Funcs[] =
 {
 	unpack4_0,		//0
 	unpack4_16,		//1
@@ -47,9 +47,10 @@ const untype_pack_funcs unpack4Funcs[] =
 	unpack4_12,		//6
 	unpack_NULL,	//7
 	unpack4_2,		//8
-	unpack4_12,		//9
-	unpack4_8,		//A
+	unpack4_18,		//9
+	unpack4_10,		//A
 	unpack_NULL,	//B
 	unpack4_6,		//C
-	unpack4_22		//D
+	unpack4_22,		//D
+	unpack4_14		//E
 };

@@ -7,8 +7,8 @@ s32 unpack8_0(unsigned char * _src, long * _dst)
 //------------------------------------------------------------------------------------------------------
 s32 unpack8_4(unsigned char * _src, long * _dst)
 {
-	// 4	באיעא : 0001'xxxx	aaaa'bbbb cccc'dddd eeee'ffff | hhhh'gggg					
-	//CString sbin = ToBin(_src, 5);
+	//5 / 4   : (8) xxxx'0001	aaaa'bbbb cccc'dddd eeee'ffff | hhhh'gggg								|									      |											|										  |
+
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0x0f);
@@ -407,8 +407,8 @@ s32 unpack8_11(unsigned char * _src, long * _dst)
 //------------------------------------------------------------------------------------------------------
 s32 unpack8_12(unsigned char * _src, long * _dst)
 {
-	//CString sbin = ToBin(_src, 13);
-	// 12	באיע  : 1001'xxxx	aaaa'aaaa aaaa'bbbb bbbb'bbbb | cccc'cccc cccc'dddd dddd'dddd eeee'eeee | eeee'ffff ffff'ffff hhhh'hhhh hhhh'gggg	| gggg'gggg			
+	//13 / 12 : (9) xxxx'1001	aaaa'aaaa aaaa'bbbb bbbb'bbbb | cccc'cccc cccc'dddd dddd'dddd eeee'eeee | eeee'ffff ffff'ffff hhhh'hhhh hhhh'gggg | gggg'gggg								|										  |
+
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0xfff);
@@ -658,13 +658,7 @@ s32 unpack8_16(unsigned char * _src, long * _dst)
 //------------------------------------------------------------------------------------------------------
 s32 unpack8_20(unsigned char * _src, long * _dst)
 {
-	// 21	באיע  : 
-	// 1110'xxxx 
-	// aaaa'aaaa aaaa'aaaa aaaa'bbbb | bbbb'bbbb bbbb'bbbb cccc'cccc | cccc'cccc cccc'dddd dddd'dddd |
-	// dddd'dddd eeee'eeee eeee'eeee | eeee'ffff ffff'ffff ffff'ffff | hhhh'hhhh hhhh'hhhh hhhh'gggg |
-	// gggg'gggg | gggg gggg
-
-	//21 באיע/20 בטע: xxxx'1110	aaaa'aaaa aaaa'aaaa aaaa'bbbb | bbbb'bbbb bbbb'bbbb cccc'cccc cccc'cccc | cccc'dddd dddd'dddd dddd'dddd eeee'eeee | eeee'eeee eeee'ffff ffff'ffff ffff'ffff | hhhh'hhhh hhhh'hhhh hhhh'gggg gggg'gggg	| gggg'gggg
+	//21 / 20 : (7) xxxx'1110	aaaa'aaaa aaaa'aaaa aaaa'bbbb | bbbb'bbbb bbbb'bbbb cccc'cccc cccc'cccc | cccc'dddd dddd'dddd dddd'dddd eeee'eeee | eeee'eeee eeee'ffff ffff'ffff ffff'ffff | hhhh'hhhh hhhh'hhhh hhhh'gggg gggg'gggg | gggg'gggg
 	DWORD DW = *(DWORD*)(_src + 1);
 	//0 a
 	*_dst = (DW & 0xfffff);
@@ -721,7 +715,7 @@ s32 unpack8(unsigned char * _src, long * _dst)
 	s32 ret;
 	if (id < 0x0F)
 	{
-		//untype_pack_funcs * pUp = &unpack8Funcs[id];
+		//type_unpack_funcs * pUp = &unpack8Funcs[id];
 		ret=unpack8Funcs[id](_src, _dst);
 	}
 	return ret;

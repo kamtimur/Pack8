@@ -188,7 +188,8 @@ s32 pack4_8(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR o
 
 	//5 байт / 8 бит: xxxx'0100 aaaa'aaaa bbbb'bbbb cccc'cccc dddd'dddd
 	ch0 &= 0xFF; ch1 &= 0xFF; ch2 &= 0xFF;  ch3 &= 0xFF;
-	*out_pkcd = mark_num | (0b0010 << 4) | (ch0 << 8) | (ch1 << 16) | (ch2 << 24) | (ch3 << 30);;
+	*out_pkcd++	= mark_num | (0b0010 << 4) | (ch0 << 8) | (ch1 << 16) | (ch2 << 24);
+	*out_pkcd	= (ch3);
 	return 5;
 }
 //------------------------------------------------------------------------------------------------------
@@ -203,8 +204,8 @@ s32 pack4_10(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR 
 
 	//6 байт / 10 бит: xxxx'0101 aaaa'aaaa aabb'bbbb bbbb'cccc cccc'ccdd dddd'dddd
 	ch0 &= 0x3FF; ch1 &= 0x3FF; ch2 &= 0x3FF; ch3 &= 0x3FF;
-	*out_pkcd++ = mark_num | (0b1010 << 4) | (ch0 << 8) | (ch1 << 18) | (ch2 << 26);
-	*out_pkcd = (ch2 >> 6) | (ch3 << 4);
+	*out_pkcd++ = mark_num | (0b1010 << 4) | (ch0 << 8) | (ch1 << 18) | (ch2 << 28);
+	*out_pkcd = (ch2 >> 4) | (ch3 << 6);
 	return 6;
 }
 //------------------------------------------------------------------------------------------------------
@@ -304,7 +305,7 @@ s32 pack4_22(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR 
 	ch0 &= 0x3FFFFF; ch1 &= 0x3FFFFF; ch2 &= 0x3FFFFF; ch3 &= 0x3FFFFF;
 	*out_pkcd++ = mark_num | (0b1101 << 4) | (ch0 << 8) | (ch1 << 30);
 	*out_pkcd++ = (ch1 >> 2) | (ch2 << 20);
-	*out_pkcd = (ch2 >> 12) | (ch3 << 8);
+	*out_pkcd   = (ch2 >> 12) | (ch3 << 10);
 	return 12;
 }
 //------------------------------------------------------------------------------------------------------
@@ -317,12 +318,12 @@ s32 pack4_24(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR 
 	u32 mark_num = mark;
 	mark_num &= 0xF;
 
-	//13 байт/24 бит: xxxx'1100	aaaa'aaaa aaaa'aaaa	aaaa'aaaa bbbb'bbbb bbbb'bbbb bbbb'bbbb cccc'cccc cccc'cccc cccc'cccc dddd'dddd dddd'dddd dddd'dddd	
-	ch0 &= 0xFFFFFF; ch1 &= 0xFFFFFF;
+	//13 байт/24 бит: xxxx'1100	aaaa'aaaa aaaa'aaaa	aaaa'aaaa | bbbb'bbbb bbbb'bbbb bbbb'bbbb cccc'cccc | cccc'cccc cccc'cccc dddd'dddd dddd'dddd | dddd'dddd	
+	ch0 &= 0xFFFFFF; ch1 &= 0xFFFFFF; ch2 &= 0xFFFFFF; ch3 &= 0xFFFFFF;
 	*out_pkcd++ = mark_num | (0b0011 << 4) | (ch0 << 8);
 	*out_pkcd++ = (ch1) | (ch2 << 24);
 	*out_pkcd++ = (ch2 >> 8) | (ch3 << 16);
-	*out_pkcd = (ch3 >> 16);
+	*out_pkcd   = (ch3 >> 16);
 	return 13;
 }
 //------------------------------------------------------------------------------------------------------

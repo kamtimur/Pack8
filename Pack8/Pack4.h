@@ -1,5 +1,4 @@
 #pragma once
-#include "types.h"
 #include "Pack.h"
 
 s32 pack4_0(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);

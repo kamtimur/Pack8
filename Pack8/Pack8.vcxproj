@@ -143,20 +143,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="pack3.cpp" />
+    <ClCompile Include="pack3_bind.cpp" />
     <ClCompile Include="Pack4.cpp" />
     <ClCompile Include="Pack8.cpp" />
     <ClCompile Include="PackAlg.cpp" />
+    <ClCompile Include="unpack3.cpp" />
+    <ClCompile Include="unpack3_bind.cpp" />
     <ClCompile Include="Unpack4.cpp" />
     <ClCompile Include="Unpack8.cpp" />
     <ClCompile Include="Unpacker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pack.h" />
+    <ClInclude Include="pack3.h" />
+    <ClInclude Include="pack3_bind.h" />
     <ClInclude Include="Pack4.h" />
     <ClInclude Include="Pack8.h" />
     <ClInclude Include="PackAlg.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="Unpack.h" />
+    <ClInclude Include="unpack3.h" />
+    <ClInclude Include="unpack3_bind.h" />
     <ClInclude Include="Unpack4.h" />
     <ClInclude Include="Unpack8.h" />
     <ClInclude Include="Unpacker.h" />

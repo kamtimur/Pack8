@@ -39,7 +39,7 @@ s32 unpack8_14(unsigned char * _src, long * _dst);
 s32 unpack8_10(unsigned char * _src, long * _dst);
 
 
-const untype_pack_funcs unpack8Funcs[] =
+const type_unpack_funcs unpack8Funcs[] =
 {
 	unpack8_0,		//0
 	unpack8_11,		//1

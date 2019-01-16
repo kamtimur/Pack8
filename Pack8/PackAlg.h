@@ -18,7 +18,7 @@ protected:
 
 	const type_pack_funcs* PackFuncs;
 	s32 stide_sz;
-	s32 Prev_Diff[16];
+	s32 Prev_Diff[];
 };
 
 //struct PackAlgConf {

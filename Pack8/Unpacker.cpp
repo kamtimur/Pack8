@@ -14,7 +14,6 @@ s32 Unpacker::Unpack(unsigned char * _src, long * _dst)
 	s32 ret;
 	if (id < 0x0F)
 	{
-		//untype_pack_funcs * pUp = &unpack8Funcs[id];
 		ret = UnpackFuncs[id](_src, _dst);
 		for (s32 i = 0; i < PrevSz; i++)
 		{
