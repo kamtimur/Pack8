@@ -12,7 +12,7 @@ s32 Unpacker::Unpack(unsigned char * _src, long * _dst)
 {
 	BYTE id = ((*_src >> 4) & 0x0F);
 	s32 ret;
-	if (id < 0x0F)
+	if (id <= 0x0F)
 	{
 		ret = UnpackFuncs[id](_src, _dst);
 		for (s32 i = 0; i < PrevSz; i++)

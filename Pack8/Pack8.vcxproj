@@ -88,6 +88,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/std:c++14 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,6 +117,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/std:c++14 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,11 +145,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="pack1.cpp" />
+    <ClCompile Include="pack1_bind.cpp" />
+    <ClCompile Include="pack2.cpp" />
+    <ClCompile Include="pack2_bind.cpp" />
     <ClCompile Include="pack3.cpp" />
     <ClCompile Include="pack3_bind.cpp" />
     <ClCompile Include="Pack4.cpp" />
     <ClCompile Include="Pack8.cpp" />
-    <ClCompile Include="PackAlg.cpp" />
+    <ClCompile Include="pack_alg_bind.cpp" />
+    <ClCompile Include="unpack1.cpp" />
+    <ClCompile Include="unpack2.cpp" />
     <ClCompile Include="unpack3.cpp" />
     <ClCompile Include="unpack3_bind.cpp" />
     <ClCompile Include="Unpack4.cpp" />
@@ -156,6 +164,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pack.h" />
+    <ClInclude Include="pack1.h" />
+    <ClInclude Include="pack1_bind.h" />
+    <ClInclude Include="pack2.h" />
+    <ClInclude Include="pack2_bind.h" />
     <ClInclude Include="pack3.h" />
     <ClInclude Include="pack3_bind.h" />
     <ClInclude Include="Pack4.h" />
@@ -163,6 +175,8 @@
     <ClInclude Include="PackAlg.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="Unpack.h" />
+    <ClInclude Include="unpack1.h" />
+    <ClInclude Include="unpack2.h" />
     <ClInclude Include="unpack3.h" />
     <ClInclude Include="unpack3_bind.h" />
     <ClInclude Include="Unpack4.h" />

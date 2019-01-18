@@ -11,7 +11,7 @@
 //8 / 19  : (3) xxxx'110a	aaaa'aaaa	aaaa'aaaa	aabb'bbbb bbbb'bbbb bbbb'bccc cccc'cccc cccc'cccc	
 //9 / 21  : (6) xxxx'0110	aaaa'aaaa	aaaa'aaaa	aaaa'abbb bbbb'bbbb bbbb'bbbb bbcc'cccc cccc'cccc cccc'ccc-
 //10/ 24  : (E) xxxx'0111	aaaa'aaaa	aaaa'aaaa	aaaa'aaaa bbbb'bbbb bbbb'bbbb bbbb'bbbb cccc'cccc cccc'cccc cccc'cccc
-
+//--------------------------------------------------------
 
 s32 pack3(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd) //TODO(romanm): поменять возвращаемое значение на знаковое во всей цепочке вызовов
 {

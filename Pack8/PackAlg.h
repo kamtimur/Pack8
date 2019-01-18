@@ -1,25 +1,34 @@
 #pragma once
 #include "types.h"
 #include "Pack.h"
+
+
+
+template<s32 _ChannelNum, typename TFunc, TFunc* _PackFuncs>
 class PackAlg
 {
 public:
-	PackAlg(s32 ChannelNumber, const type_pack_funcs* _PackFuncs) : InnerChannelNumber(ChannelNumber), PackFuncs(_PackFuncs) 
-	{
-		stide_sz= ChannelNumber*2; 
-	}
+	PackAlg() {}
 	void Reset();
+	void Test();
 	s32  Pack(const s32* RESTR in_diff, EventMark mark, s32* RESTR out_pkcd);
+	s32  Pack(const s32* RESTR in_diff, s32* RESTR out_pkcd);
 protected:
 	s32 Size(s32 rg);
 public:
-	const s32 InnerChannelNumber;
+	static const s32 InnerChannelNumber = _ChannelNum;
 protected:
 
-	const type_pack_funcs* PackFuncs;
-	s32 stide_sz;
-	s32 Prev_Diff[];
+	static TFunc* const PackFuncs;
+	static const s32 ChannelNum = _ChannelNum;
+	s32 Prev[ChannelNum];
+	s32 Diff[ChannelNum];
 };
+
+#include "PackAlg.cpp"
+
+template<s32 _ChannelNum, typename TFunc, TFunc* _PackFuncs>
+TFunc* const PackAlg<_ChannelNum, TFunc, _PackFuncs>::PackFuncs = _PackFuncs;
 
 //struct PackAlgConf {
 //	const type_pack_funcs* PackFuncs;
