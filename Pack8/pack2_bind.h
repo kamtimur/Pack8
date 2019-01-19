@@ -11,14 +11,14 @@
 //-------------------------------------------------------- -
 
 
-s32 pack2_3_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack2_7_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack2_11_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack2_14_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack2_18_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack2_22_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack2_3_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack2_7_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack2_11_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack2_14_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack2_18_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack2_22_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
 
-const type_pack_bind_funcs pack2_bind_Funcs[] =
+const type_pack_funcs pack2_bind_Funcs[] =
 {
 	pack2_3_bind,		//0
 	pack2_3_bind,		//1

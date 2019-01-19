@@ -10,7 +10,15 @@ void Unpacker::Reset()
 
 s32 Unpacker::Unpack(unsigned char * _src, long * _dst)
 {
-	BYTE id = ((*_src >> 4) & 0x0F);
+	BYTE id;
+	if (Type == PackType::COMM)
+	{
+		id = ((*_src >> 4) & 0x0F);
+	}
+	if (Type == PackType::BIND)
+	{
+		id = ((*_src) & 0x0F);
+	}
 	s32 ret;
 	if (id <= 0x0F)
 	{

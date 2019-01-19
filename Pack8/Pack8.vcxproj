@@ -153,6 +153,7 @@
     <ClCompile Include="pack3_bind.cpp" />
     <ClCompile Include="Pack4.cpp" />
     <ClCompile Include="Pack8.cpp" />
+    <ClCompile Include="PackAlg.cpp" />
     <ClCompile Include="pack_alg_bind.cpp" />
     <ClCompile Include="unpack1.cpp" />
     <ClCompile Include="unpack2.cpp" />

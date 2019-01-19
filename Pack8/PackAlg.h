@@ -4,31 +4,31 @@
 
 
 
-template<s32 _ChannelNum, typename TFunc, TFunc* _PackFuncs>
+
+
 class PackAlg
 {
 public:
-	PackAlg() {}
+	PackAlg(s32 _ChannelNum, const type_pack_funcs* _PackFuncs, s32* _Prev, s32* _Diff)
+		: 
+		InnerChannelNumber(_ChannelNum),
+		PackFuncs(_PackFuncs),
+		Prev(_Prev),
+		Diff(_Diff)
+	{};
 	void Reset();
-	void Test();
 	s32  Pack(const s32* RESTR in_diff, EventMark mark, s32* RESTR out_pkcd);
-	s32  Pack(const s32* RESTR in_diff, s32* RESTR out_pkcd);
+
 protected:
 	s32 Size(s32 rg);
 public:
-	static const s32 InnerChannelNumber = _ChannelNum;
+	s32 InnerChannelNumber;
 protected:
-
-	static TFunc* const PackFuncs;
-	static const s32 ChannelNum = _ChannelNum;
-	s32 Prev[ChannelNum];
-	s32 Diff[ChannelNum];
+	s32* Prev;
+	s32* Diff;
+	const type_pack_funcs* PackFuncs;
 };
 
-#include "PackAlg.cpp"
-
-template<s32 _ChannelNum, typename TFunc, TFunc* _PackFuncs>
-TFunc* const PackAlg<_ChannelNum, TFunc, _PackFuncs>::PackFuncs = _PackFuncs;
 
 //struct PackAlgConf {
 //	const type_pack_funcs* PackFuncs;

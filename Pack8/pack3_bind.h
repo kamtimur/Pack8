@@ -13,16 +13,16 @@
 //-------------------------------------------------------- -
 
 
-s32 pack3_2_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack3_4_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack3_7_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack3_10_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack3_12_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack3_15_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack3_17_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
-s32 pack3_20_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack3_2_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack3_4_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack3_7_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack3_10_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack3_12_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack3_15_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack3_17_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
+s32 pack3_20_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd);
 
-const type_pack_bind_funcs pack3_bind_Funcs[] =
+const type_pack_funcs pack3_bind_Funcs[] =
 {
 	pack3_2_bind,		//0
 	pack3_2_bind,		//1

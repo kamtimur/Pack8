@@ -15,6 +15,9 @@
 #include "pack3.h"
 #include "unpack3.h"
 
+#include "pack3_bind.h"
+#include "unpack3_bind.h"
+
 #include "pack2.h"
 #include "unpack2.h"
 
@@ -24,62 +27,71 @@
 //функция проверки паковки распаковки 
 //num_unpack_funcs - кол-во функций распаковки 
 //max_capacity - максимальная разрядность(кол -во значащих бит) сигнала проверки(sin)
-template<typename Pack>
-s32 Test(Pack* pack_alg, Unpacker* unpack, s32 num_unpack_funcs, s32 max_capacity);
+s32 Test(PackAlg* pack_alg, Unpacker* unpack, s32 num_unpack_funcs, s32 max_capacity);
 s32 signal[8];
 s32 packed[8];
 long unpacked[8];
 s32 prev_signal[8];
 s32 diff_signal[8];
+s32 previous[8];
+s32 diffrence[8];
+s32 cnt = 1;
+
 int main()
 {
 
 
-	//PackAlg pack8(8, pack8Funcs);
+	//PackAlg pack8(8, pack8Funcs, previous, diffrence);
 	//Unpacker unpack8(8, unpack8Funcs);
 	//pack8.Reset();
 	//unpack8.Reset();
-
-	//PackAlg pack4(4, pack4Funcs);
-	//Unpacker unpack4(4, unpack4Funcs);
-	//pack4.Reset();
-	//unpack4.Reset();
-
-	//PackAlg pack3(3, pack3Funcs);
-	//Unpacker unpack3(3, unpack3Funcs);
-	//pack3.Reset();
-	//unpack3.Reset();
-
-	//PackAlg pack2(2, pack2Funcs);
-	//Unpacker unpack2(2, unpack2Funcs);
-	//pack2.Reset();
-	//unpack2.Reset();
-
-	//PackAlg pack1(1, pack1Funcs);
-	//Unpacker unpack1(1, unpack1Funcs);
-	//pack1.Reset();
-	//unpack1.Reset();
-	//PackAlg<8, type_pack_func*, &> packAlg;
-
-	PackAlg<4, type_pack_funcs, (type_pack_funcs*)pack4Funcs> pack4;
-	Unpacker unpack4(4, unpack4Funcs);
-	pack4.Reset();
-	unpack4.Reset();
-
 	//if (Test(&pack8, &unpack8, 14,20))
 	//{
 	//	printf("Test passed for %d channels\n", pack8.InnerChannelNumber);
 	//}
 
-	if (Test(&pack4, &unpack4, 12, 24))
-	{
-		printf("Test passed for %d channels\n", pack4.InnerChannelNumber);
-	}
+	//PackAlg pack4(4, pack4Funcs, previous, diffrence);
+	//Unpacker unpack4(4, unpack4Funcs);
+	//pack4.Reset();
+	//unpack4.Reset();
+	//if (Test(&pack4, &unpack4, 12, 24))
+	//{
+	//	printf("Test passed for %d channels\n", pack4.InnerChannelNumber);
+	//}
 
+	//PackAlg pack3(3, pack3Funcs, previous, diffrence);
+	//Unpacker unpack3(3, unpack3Funcs);
+	//pack3.Reset();
+	//unpack3.Reset();
 	//if (Test(&pack3, &unpack3, 9, 24))
 	//{
 	//	printf("Test passed for %d channels\n", pack3.InnerChannelNumber);
 	//}
+
+	PackAlg pack3_bind(3, pack3_bind_Funcs, previous, diffrence);
+	Unpacker unpack3_bind(3, unpack3Funcs_bind, PackType::BIND);
+	pack3_bind.Reset();
+	unpack3_bind.Reset();
+	if (Test(&pack3_bind, &unpack3_bind, 8, 20))
+	{
+		printf("Test passed for %d channels\n", pack3_bind.InnerChannelNumber);
+	}
+
+	//PackAlg pack2(2, pack2Funcs, previous, diffrence);
+	//Unpacker unpack2(2, unpack2Funcs);
+	//pack2.Reset();
+	//unpack2.Reset();
+
+	//PackAlg pack1(1, pack1Funcs, previous, diffrence);
+	//Unpacker unpack1(1, unpack1Funcs);
+	//pack1.Reset();
+	//unpack1.Reset();
+
+	//PackAlg pack4(4, pack4Funcs, previous, diffrence);
+	//Unpacker unpack4(4, unpack4Funcs);
+	//pack4.Reset();
+	//unpack4.Reset();
+
 	//if (Test(&pack2, &unpack2, 6, 24))
 	//{
 	//	printf("Test passed for %d channels\n", pack2.InnerChannelNumber);
@@ -94,13 +106,11 @@ int main()
 //функция проверки паковки распаковки 
 //num_unpack_funcs - кол-во функций распаковки 
 //max_capacity - максимальная разрядность(кол -во значащих бит) сигнала проверки(sin)
-template<typename Pack>
-s32 Test(Pack* pack_alg, Unpacker* unpack, s32 num_unpack_funcs, s32 max_capacity)
+s32 Test(PackAlg* pack_alg, Unpacker* unpack, s32 num_unpack_funcs, s32 max_capacity)
 {
 
 	s32 pack_used[20];
 	s32 num_channels = pack_alg->InnerChannelNumber;
-	s32 cnt = 1;
 	s32 amplitude = pow(2, max_capacity - 1);
 	memset(signal, 0, num_channels*4);
 	memset(pack_used, 0, 20 * 4);

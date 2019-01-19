@@ -83,6 +83,7 @@ s32 unpack3_20_bind(unsigned char * _src, long * _dst)
 	//8 / 20 : (F) 1111'aaaa aaaa'aaaa aaaa'aaaa bbbb'bbbb bbbb'bbbb bbbb'cccc cccc'cccc cccc'cccc
 	DWORD S = GETSRCS(_src, 4);
 	UNPACKPTN(S, 20);
+	S = GETSRC(_src + 3);
 	UNPACKPTN(S, 20);
 	S = GETSRCS(_src + 5, 4);
 	UNPACKPTN_END(S, 20);

@@ -12,7 +12,7 @@
 //-------------------------------------------------------- -
 
 
-//s32 pack3_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd) //TODO(romanm): �������� ������������ �������� �� �������� �� ���� ������� �������
+//s32 pack3_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd) //TODO(romanm): �������� ������������ �������� �� �������� �� ���� ������� �������
 //{
 //	u32 ch0 = in_diff[0];
 //	u32 ch1 = in_diff[1];
@@ -79,7 +79,7 @@
 //
 //}
 
-s32 pack3_2_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
+s32 pack3_2_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd)
 {
 	u32 ch0 = in_diff[0];
 	u32 ch1 = in_diff[1];
@@ -89,7 +89,7 @@ s32 pack3_2_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
 	*out_pkcd = 0 | (ch0 << 2) | (ch1 << 4) | (ch2 << 6);
 	return 1;
 }
-s32 pack3_4_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
+s32 pack3_4_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd)
 {
 	u32 ch0 = in_diff[0];
 	u32 ch1 = in_diff[1];
@@ -99,7 +99,7 @@ s32 pack3_4_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
 	*out_pkcd = 0b1100 | (ch0 << 4) | (ch1 << 8) | (ch2 << 12);
 	return 2;
 }
-s32 pack3_7_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
+s32 pack3_7_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd)
 {
 	u32 ch0 = in_diff[0];
 	u32 ch1 = in_diff[1];
@@ -109,7 +109,7 @@ s32 pack3_7_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
 	*out_pkcd = 0b101 | (ch0 << 3) | (ch1 << 10) | (ch2 << 17);
 	return 3;
 }
-s32 pack3_10_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
+s32 pack3_10_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd)
 {
 	u32 ch0 = in_diff[0];
 	u32 ch1 = in_diff[1];
@@ -119,7 +119,7 @@ s32 pack3_10_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
 	*out_pkcd = 0b01 | (ch0 << 2) | (ch1 << 12) | (ch2 << 22);
 	return 4;
 }
-s32 pack3_12_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
+s32 pack3_12_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd)
 {
 	u32 ch0 = in_diff[0];
 	u32 ch1 = in_diff[1];
@@ -130,7 +130,7 @@ s32 pack3_12_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
 	*out_pkcd = (ch2 >> 4);
 	return 5;
 }
-s32 pack3_15_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
+s32 pack3_15_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd)
 {
 	u32 ch0 = in_diff[0];
 	u32 ch1 = in_diff[1];
@@ -141,18 +141,18 @@ s32 pack3_15_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
 	*out_pkcd = (ch1 >> 14) | (ch2 << 1);
 	return 6;
 }
-s32 pack3_17_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
+s32 pack3_17_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd)
 {
 	u32 ch0 = in_diff[0];
 	u32 ch1 = in_diff[1];
 	u32 ch2 = in_diff[2];
 	//7 / 17 : (7) 1110'aaaa aaaa'aaaa aaaa'abbb bbbb'bbbb bbbb'bbcc cccc'cccc cccc'ccc-
 	ch0 &= 0x1FFFF; ch1 &= 0x1FFFF; ch2 &= 0x1FFFF;
-	*out_pkcd++ = 0b1110 | (ch0 << 4) | (ch1 << 21);
+	*out_pkcd++ = 0b0111 | (ch0 << 4) | (ch1 << 21);
 	*out_pkcd = (ch1 >> 11) | (ch2 << 6);
 	return 7;
 }
-s32 pack3_20_bind(const s32* RESTR in_diff, s32 num_bits, s32* RESTR out_pkcd)
+s32 pack3_20_bind(const s32* RESTR in_diff, EventMark mark, s32 num_bits, s32* RESTR out_pkcd)
 {
 	u32 ch0 = in_diff[0];
 	u32 ch1 = in_diff[1];
